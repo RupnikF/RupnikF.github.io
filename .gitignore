@@ -1,0 +1,39 @@
+# Node modules
+node_modules/
+
+# Dependency directories
+dist/
+build/
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# OS generated files
+*.swp
+*.swo
+
+# IDE files
+.idea/
+.vscode/
+
+# Environment files
+.env
+.env.*
+
+# Misc
+*.bak
+*.tmp
+
+# Output files
+*.out
+
+# SASS cache
+.sass-cache/
+
+# Images cache
+images/cache/
+
