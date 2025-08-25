@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio</title>
+    <title>RupnikF Portfolio</title>
     <link rel="stylesheet"
           href=
                   "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
@@ -44,11 +44,6 @@
                     </a>
                 </li>
                 <li class="menu-list-items">
-                    <a class="links" href="#services" data-i18n="services">
-                        Services
-                    </a>
-                </li>
-                <li class="menu-list-items">
                     <a class="links" href="#contact" data-i18n="contact">
                         Contact Me
                     </a>
@@ -69,12 +64,20 @@
             </h4>
         </div>
         <div class="intro-buttons">
-            <button class="btn common-btn" data-i18n="hire">Hire Me</button>
+            <a class="btn common-btn" data-i18n="hire" href="#contact">Hire Me</a>
             <a href="cv_RupnikF.pdf" class="btn ghost-btn" data-i18n="resume" download>
                 Get Resume
             </a>
         </div>
     </div>
+    <div class="hero-image">
+        <picture class="hero-pic">
+            <source srcset="./images/ImageHeroPortfolio.avif" type="image/avif">
+            <source srcset="./images/ImageHeroPortfolio.webp" type="image/webp">
+            <img src="./images/ImageHeroPortfolio.png" alt="Hero Image">
+        </picture>
+    </div>
+
 </section>
 
 <!-- Portfolio Section -->
