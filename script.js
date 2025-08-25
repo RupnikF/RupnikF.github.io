@@ -29,14 +29,11 @@ const translations = {
         getInTouch: "Get In Touch",
         yourName: "Your Name",
         yourEmail: "Your Email",
-        yourPhone: "Your Phone",
         writeMessage: "Write your message",
         sendMessage: "Send Message",
         myContact: "My Contact Details",
-        email: "EMAIL",
-        phone: "PHONE",
-        fax: "FAX",
-        address: "ADDRESS"
+        pEmail: "PERSONAL EMAIL ",
+        uEmail: "UNIVERSITY EMAIL"
     },
     es: {
         home: "Inicio",
@@ -57,14 +54,11 @@ const translations = {
         getInTouch: "Contáctame",
         yourName: "Tu nombre",
         yourEmail: "Tu correo",
-        yourPhone: "Tu teléfono",
         writeMessage: "Escribe tu mensaje",
         sendMessage: "Enviar mensaje",
         myContact: "Mis datos de contacto",
-        email: "CORREO",
-        phone: "TELÉFONO",
-        fax: "FAX",
-        address: "DIRECCIÓN"
+        pEmail: "CORREO PERSONAL",
+        uEmail: "CORREO UNIVERSITARIO"
     }
 };
 
