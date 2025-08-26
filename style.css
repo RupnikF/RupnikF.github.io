@@ -336,7 +336,7 @@ body {
 .project-row {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-evenly;
     gap: 2rem;
     padding: 3rem 0;
     border-radius: 32px;
@@ -350,11 +350,11 @@ body {
 }
 
 .project-image img {
-    width: 350px;
-    height: 220px;
-    object-fit: cover;
+    width: 520px;
+    max-width: 95vw;
+    height: 360px;
+    object-fit: contain;
     border-radius: 20px;
-    box-shadow: 0 4px 16px 0 rgba(0,0,0,0.15);
 }
 
 .project-desc {
@@ -473,7 +473,7 @@ body {
 }
 
 .small-para {
-    font-size: 14px;
+    font-size: 18px;
     color: var(--color-text-secondary);
 }
 

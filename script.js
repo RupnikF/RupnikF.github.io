@@ -33,7 +33,20 @@ const translations = {
         sendMessage: "Send Message",
         myContact: "My Contact Details",
         pEmail: "PERSONAL EMAIL ",
-        uEmail: "UNIVERSITY EMAIL"
+        uEmail: "UNIVERSITY EMAIL",
+        dockerMonitorTitle: "Docker Monitor",
+        dockerMonitorDesc: "My final course project developed at ITBA. This private repository showcases a Docker monitoring tool built primarily with Go, complemented by Python and Shell scripting. It is designed to monitor and manage Docker containers, providing insights and operational automation. The project demonstrates my ability to architect multi-language systems, utilize modern DevOps practices, and deliver robust monitoring solutions.",
+        taskComposerTitle: "Task Composer",
+        taskComposerDesc: "TaskComposer is a microservices-based project designed to orchestrate and manage distributed tasks efficiently. Developed primarily in Go and Java, with supporting components in Python and Shell, it demonstrates my proficiency in building scalable, modular systems using modern software engineering practices. The architecture leverages containerization and automation to ensure reliability and adaptability, making it a robust solution for complex workflow management.",
+        reviewRealmTitle: "Review Realm",
+        reviewRealmDesc: "ReviewRealm is a full-stack web application project focused on modern RESTful API design with HATEOAS principles. The backend is built using Java with Spring and Hibernate, while the frontend leverages Angular 16 for a dynamic and responsive user experience. In this project, I contributed to both backend and frontend development, gaining hands-on experience with robust API creation, seamless client-server integration, and modern web application architecture.",
+        bizcochoTitle: "Bizcocho OS",
+        bizcochoDesc: "bizcocho_OS is a low-level operating systems project developed as part of the Operating Systems course. Written primarily in C and Assembly, this project implements core OS concepts including process scheduling, memory management, and parallel process execution. Through this work, I gained hands-on experience with systems programming close to the hardware, optimizing memory usage, and designing efficient schedulers to support multitasking environments.",
+        bandoruTitle: "Bandoru",
+        bandoruDesc: "Bandoru is a cloud service designed for efficient and secure code sharing, developed as part of my AWS-focused coursework. The project leverages TypeScript and HTML for the frontend, while Python powers the backend services. Infrastructure as Code is implemented using HCL and Docker, enabling scalable deployment on AWS. Through Bandoru, I gained practical experience in cloud architecture, secure file handling, and automated deployments.",
+        stronkTitle: "Stronk",
+        stronkAppTitle: "Stronk App",
+        stronkDesc: "Stronk is a comprehensive fitness application available as both a web platform and a native Android app. The web interface, developed with Vue.js and JavaScript, offers a responsive and interactive experience for tracking workouts and progress. The Android application, built in Kotlin, provides robust mobile functionality for managing exercises and routines anywhere, anytime. This project demonstrates my cross-platform development skills, with a focus on user-centered design and seamless integration between web and mobile experiences."
     },
     es: {
         home: "Inicio",
@@ -58,7 +71,20 @@ const translations = {
         sendMessage: "Enviar mensaje",
         myContact: "Mis datos de contacto",
         pEmail: "CORREO PERSONAL",
-        uEmail: "CORREO UNIVERSITARIO"
+        uEmail: "CORREO UNIVERSITARIO",
+        dockerMonitorTitle: "Docker Monitor",
+        dockerMonitorDesc: "Mi proyecto final de curso desarrollado en ITBA. Este repositorio privado presenta una herramienta de monitoreo de Docker construida principalmente en Go, complementada con scripts en Python y Shell. Está diseñada para monitorear y gestionar contenedores Docker, brindando información y automatización operativa. El proyecto demuestra mi capacidad para diseñar sistemas en varios lenguajes, aplicar prácticas modernas de DevOps y entregar soluciones de monitoreo robustas.",
+        taskComposerTitle: "Task Composer",
+        taskComposerDesc: "TaskComposer es un proyecto basado en microservicios diseñado para orquestar y gestionar tareas distribuidas de manera eficiente. Desarrollado principalmente en Go y Java, con componentes adicionales en Python y Shell, demuestra mi experiencia en la construcción de sistemas escalables y modulares utilizando prácticas modernas de ingeniería de software. La arquitectura aprovecha la contenedorización y la automatización para garantizar la fiabilidad y la adaptabilidad, convirtiéndolo en una solución robusta para la gestión de flujos de trabajo complejos.",
+        reviewRealmTitle: "Review Realm",
+        reviewRealmDesc: "ReviewRealm es un proyecto de aplicación web full-stack enfocado en el diseño de APIs RESTful modernas con principios HATEOAS. El backend está desarrollado en Java utilizando Spring e Hibernate, y el frontend utiliza Angular 16 para una experiencia de usuario dinámica y responsiva. En este proyecto participé tanto en el desarrollo del backend como del frontend, adquiriendo experiencia práctica en la creación de APIs robustas, integración fluida entre cliente y servidor, y arquitectura moderna de aplicaciones web.",
+        bizcochoTitle: "Bizcocho OS",
+        bizcochoDesc: "bizcocho_OS es un proyecto de sistemas operativos de bajo nivel desarrollado para la materia de Sistemas Operativos. Escrito principalmente en C y Assembly, este proyecto implementa conceptos fundamentales del sistema operativo, como la planificación de procesos, la gestión de memoria y la ejecución de procesos en paralelo. A través de este trabajo adquirí experiencia práctica en programación de sistemas cercana al hardware, optimización del uso de memoria y diseño de planificadores eficientes para entornos multitarea.",
+        bandoruTitle: "Bandoru",
+        bandoruDesc: "Bandoru es un servicio en la nube diseñado para compartir código de manera eficiente y segura, desarrollado como parte de mi formación enfocada en AWS. El proyecto utiliza TypeScript y HTML para el frontend, mientras que los servicios backend están desarrollados en Python. La infraestructura como código se implementa con HCL y Docker, permitiendo un despliegue escalable en AWS. Gracias a Bandoru, obtuve experiencia práctica en arquitectura cloud, manejo seguro de archivos y despliegues automatizados.",
+        stronkTitle: "Stronk",
+        stronkAppTitle: "Stronk App",
+        stronkDesc: "Stronk es una aplicación integral de fitness disponible tanto como plataforma web como aplicación nativa para Android. La interfaz web, desarrollada con Vue.js y JavaScript, ofrece una experiencia interactiva y responsiva para registrar entrenamientos y progreso. La aplicación Android, construida en Kotlin, brinda funcionalidades móviles sólidas para gestionar ejercicios y rutinas en cualquier momento y lugar. Este proyecto demuestra mis habilidades en desarrollo multiplataforma, enfocadas en el diseño centrado en el usuario y la integración fluida entre experiencias web y móviles."
     }
 };
 
