@@ -114,7 +114,7 @@ if (contactForm) {
         const inputs = contactForm.querySelectorAll('.form-controls');
         const name = inputs[0].value.trim();
         const email = inputs[1].value.trim();
-        const message = inputs[3].value.trim();
+        const message = inputs[2].value.trim();
 
         // Reemplaza esta URL por la de tu webhook de Discord
         const webhookUrl = 'https://discord.com/api/webhooks/1375575867035615412/FSD9vglEq8OkZlK_0xd8jn2KCCpdzkQnHoSKgJK8DvXahnXCiXO_9LIS4HPsrinfY6lA';
