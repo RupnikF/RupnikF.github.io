@@ -98,6 +98,10 @@ function applyLang(l) {
   document.documentElement.lang = l;
   document.getElementById("langCur").textContent = l.toUpperCase();
   document.getElementById("langAlt").textContent = (l === "en" ? "ES" : "EN");
+
+  // serve the CV that matches the active language
+  const resumeLink = document.getElementById("resumeLink");
+  if (resumeLink) resumeLink.href = (l === "es") ? "cv_franco_rupnik_es.pdf" : "cv_franco_rupnik_en.pdf";
 }
 
 document.getElementById("langBtn").addEventListener("click", () => applyLang(lang === "en" ? "es" : "en"));
