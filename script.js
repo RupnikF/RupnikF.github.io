@@ -1,142 +1,146 @@
-//index.js
+// Franco Rupnik — portfolio behaviour: i18n toggle, scroll reveal, contact form.
 
-// Smooth scroll for browsers without native support
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener("click", function(e) {
-        e.preventDefault();
-        document.querySelector(this.getAttribute("href"))
-            .scrollIntoView({ behavior: "smooth" });
-    });
-});
+document.getElementById('year').textContent = new Date().getFullYear();
 
-const translations = {
-    en: {
-        home: "Home",
-        portfolio: "Portfolio",
-        about: "About",
-        services: "Services",
-        contact: "Contact Me",
-        greeting: "Hello, I'm",
-        subheading: "A Computer Engineer with 2 years of Experience.",
-        hire: "Hire Me",
-        resume: "Get Resume",
-        projects: "Projects",
-        project1: "Project 1",
-        project2: "Project 2",
-        project3: "Project 3",
-        projectDesc: "Brief project description. Explain the technologies used and the project goal.",
-        aboutMe: "About Me",
-        getInTouch: "Get In Touch",
-        yourName: "Your Name",
-        yourEmail: "Your Email",
-        writeMessage: "Write your message",
-        sendMessage: "Send Message",
-        myContact: "My Contact Details",
-        pEmail: "PERSONAL EMAIL ",
-        uEmail: "UNIVERSITY EMAIL",
-        dockerMonitorTitle: "Docker Monitor",
-        dockerMonitorDesc: "My final course project developed at ITBA. This private repository showcases a Docker monitoring tool built primarily with Go, complemented by Python and Shell scripting. It is designed to monitor and manage Docker containers, providing insights and operational automation. The project demonstrates my ability to architect multi-language systems, utilize modern DevOps practices, and deliver robust monitoring solutions.",
-        taskComposerTitle: "Task Composer",
-        taskComposerDesc: "TaskComposer is a microservices-based project designed to orchestrate and manage distributed tasks efficiently. Developed primarily in Go and Java, with supporting components in Python and Shell, it demonstrates my proficiency in building scalable, modular systems using modern software engineering practices. The architecture leverages containerization and automation to ensure reliability and adaptability, making it a robust solution for complex workflow management.",
-        reviewRealmTitle: "Review Realm",
-        reviewRealmDesc: "ReviewRealm is a full-stack web application project focused on modern RESTful API design with HATEOAS principles. The backend is built using Java with Spring and Hibernate, while the frontend leverages Angular 16 for a dynamic and responsive user experience. In this project, I contributed to both backend and frontend development, gaining hands-on experience with robust API creation, seamless client-server integration, and modern web application architecture.",
-        bizcochoTitle: "Bizcocho OS",
-        bizcochoDesc: "bizcocho_OS is a low-level operating systems project developed as part of the Operating Systems course. Written primarily in C and Assembly, this project implements core OS concepts including process scheduling, memory management, and parallel process execution. Through this work, I gained hands-on experience with systems programming close to the hardware, optimizing memory usage, and designing efficient schedulers to support multitasking environments.",
-        bandoruTitle: "Bandoru",
-        bandoruDesc: "Bandoru is a cloud service designed for efficient and secure code sharing, developed as part of my AWS-focused coursework. The project leverages TypeScript and HTML for the frontend, while Python powers the backend services. Infrastructure as Code is implemented using HCL and Docker, enabling scalable deployment on AWS. Through Bandoru, I gained practical experience in cloud architecture, secure file handling, and automated deployments.",
-        stronkTitle: "Stronk",
-        stronkAppTitle: "Stronk App",
-        stronkDesc: "Stronk is a comprehensive fitness application available as both a web platform and a native Android app. The web interface, developed with Vue.js and JavaScript, offers a responsive and interactive experience for tracking workouts and progress. The Android application, built in Kotlin, provides robust mobile functionality for managing exercises and routines anywhere, anytime. This project demonstrates my cross-platform development skills, with a focus on user-centered design and seamless integration between web and mobile experiences.",
-        aboutMeDesc: "I am a versatile software developer with a passion for building robust, real-world solutions across the technology stack. My experience spans from low-level systems programming in C and Assembly to designing scalable cloud services and modern web and mobile applications in languages such as Go, Java, Python, Kotlin, TypeScript, and JavaScript. I have developed operating system components, architected microservices, and delivered full-stack applications for both web and Android platforms. My hands-on work with AWS, Infrastructure as Code, and DevOps practices complements my strong foundation in user-centric design and cross-platform development. Whether I’m optimizing memory usage in a custom OS or deploying scalable solutions in the cloud, I thrive on tackling complex challenges and continuously expanding my skill set."
-    },
-    es: {
-        home: "Inicio",
-        portfolio: "Portafolio",
-        about: "Sobre mí",
-        services: "Servicios",
-        contact: "Contáctame",
-        greeting: "Hola, soy",
-        subheading: "Ingeniero en Computación con 2 años de experiencia.",
-        hire: "Contrátame",
-        resume: "Obtener CV",
-        projects: "Proyectos",
-        project1: "Proyecto 1",
-        project2: "Proyecto 2",
-        project3: "Proyecto 3",
-        projectDesc: "Descripción breve del proyecto. Explica las tecnologías usadas y el objetivo del proyecto.",
-        aboutMe: "Sobre mí",
-        getInTouch: "Contáctame",
-        yourName: "Tu nombre",
-        yourEmail: "Tu correo",
-        writeMessage: "Escribe tu mensaje",
-        sendMessage: "Enviar mensaje",
-        myContact: "Mis datos de contacto",
-        pEmail: "CORREO PERSONAL",
-        uEmail: "CORREO UNIVERSITARIO",
-        dockerMonitorTitle: "Docker Monitor",
-        dockerMonitorDesc: "Mi proyecto final de curso desarrollado en ITBA. Este repositorio privado presenta una herramienta de monitoreo de Docker construida principalmente en Go, complementada con scripts en Python y Shell. Está diseñada para monitorear y gestionar contenedores Docker, brindando información y automatización operativa. El proyecto demuestra mi capacidad para diseñar sistemas en varios lenguajes, aplicar prácticas modernas de DevOps y entregar soluciones de monitoreo robustas.",
-        taskComposerTitle: "Task Composer",
-        taskComposerDesc: "TaskComposer es un proyecto basado en microservicios diseñado para orquestar y gestionar tareas distribuidas de manera eficiente. Desarrollado principalmente en Go y Java, con componentes adicionales en Python y Shell, demuestra mi experiencia en la construcción de sistemas escalables y modulares utilizando prácticas modernas de ingeniería de software. La arquitectura aprovecha la contenedorización y la automatización para garantizar la fiabilidad y la adaptabilidad, convirtiéndolo en una solución robusta para la gestión de flujos de trabajo complejos.",
-        reviewRealmTitle: "Review Realm",
-        reviewRealmDesc: "ReviewRealm es un proyecto de aplicación web full-stack enfocado en el diseño de APIs RESTful modernas con principios HATEOAS. El backend está desarrollado en Java utilizando Spring e Hibernate, y el frontend utiliza Angular 16 para una experiencia de usuario dinámica y responsiva. En este proyecto participé tanto en el desarrollo del backend como del frontend, adquiriendo experiencia práctica en la creación de APIs robustas, integración fluida entre cliente y servidor, y arquitectura moderna de aplicaciones web.",
-        bizcochoTitle: "Bizcocho OS",
-        bizcochoDesc: "bizcocho_OS es un proyecto de sistemas operativos de bajo nivel desarrollado para la materia de Sistemas Operativos. Escrito principalmente en C y Assembly, este proyecto implementa conceptos fundamentales del sistema operativo, como la planificación de procesos, la gestión de memoria y la ejecución de procesos en paralelo. A través de este trabajo adquirí experiencia práctica en programación de sistemas cercana al hardware, optimización del uso de memoria y diseño de planificadores eficientes para entornos multitarea.",
-        bandoruTitle: "Bandoru",
-        bandoruDesc: "Bandoru es un servicio en la nube diseñado para compartir código de manera eficiente y segura, desarrollado como parte de mi formación enfocada en AWS. El proyecto utiliza TypeScript y HTML para el frontend, mientras que los servicios backend están desarrollados en Python. La infraestructura como código se implementa con HCL y Docker, permitiendo un despliegue escalable en AWS. Gracias a Bandoru, obtuve experiencia práctica en arquitectura cloud, manejo seguro de archivos y despliegues automatizados.",
-        stronkTitle: "Stronk",
-        stronkAppTitle: "Stronk App",
-        stronkDesc: "Stronk es una aplicación integral de fitness disponible tanto como plataforma web como aplicación nativa para Android. La interfaz web, desarrollada con Vue.js y JavaScript, ofrece una experiencia interactiva y responsiva para registrar entrenamientos y progreso. La aplicación Android, construida en Kotlin, brinda funcionalidades móviles sólidas para gestionar ejercicios y rutinas en cualquier momento y lugar. Este proyecto demuestra mis habilidades en desarrollo multiplataforma, enfocadas en el diseño centrado en el usuario y la integración fluida entre experiencias web y móviles.",
-        aboutMeDesc: "Soy un desarrollador de software versátil, apasionado por crear soluciones robustas y reales en todo el stack tecnológico. Mi experiencia abarca desde la programación de sistemas de bajo nivel en C y Assembly, hasta el diseño de servicios cloud escalables y aplicaciones web y móviles modernas en lenguajes como Go, Java, Python, Kotlin, TypeScript y JavaScript. He desarrollado componentes de sistemas operativos, arquitecturado microservicios y entregado aplicaciones full-stack tanto para web como para Android. Mi trabajo práctico con AWS, Infraestructura como Código y prácticas DevOps complementa mi sólida base en diseño centrado en el usuario y desarrollo multiplataforma. Ya sea optimizando el uso de memoria en un sistema operativo propio o desplegando soluciones escalables en la nube, disfruto enfrentar desafíos complejos y ampliar continuamente mis habilidades."
-    }
+// ---------- i18n ----------
+const I18N = {
+  en: {
+    nav_about:"about", nav_focus:"focus", nav_xp:"experience", nav_work:"work", nav_contact:"contact",
+    status:"open to interesting problems",
+    role:"Software Engineer — backend, distributed systems &amp; AI platforms",
+    lede:"I build scalable services and AI-driven systems for production — from Spring Boot microservices on Kubernetes to agent-tool interfaces over the Model Context Protocol.",
+    cta_contact:"Get in touch", cta_resume:"Résumé ↓",
+    eye_about:"whoami", about_h:"Backend at the core, AI at the edge.",
+    about_p1:"I'm a software engineer focused on backend development, distributed systems and cloud-native architectures. I work across Java, Python, Go, Docker, Kubernetes and AWS, building scalable services and AI-driven applications that run in production.",
+    about_pull:"At <b>Mendel</b>, I build the AI platform behind intelligent expense management — a Spring Boot microservices ecosystem on AWS EKS. I own the WhatsApp conversational experience end to end: a Java orchestration layer and a Python AI agent for natural-language understanding and tool-based workflows.",
+    about_p2:"I built and shipped our <b>MCP (Model Context Protocol) server</b> to production, exposing expense-audit and travel-approval tools to AI assistants like Claude — with an OAuth 2.0 authorization layer (Dynamic Client Registration, refresh tokens), delegated SSO and SSE streaming transport. Previously at Accenture I architected multi-agent AI systems with RAG pipelines, and I teach Microservices Architecture at ITBA.",
+    eye_focus:"focus[]", focus_h:"What I care about building",
+    f1_h:"AI / LLM orchestration", f1_p:"Intelligent automation and agent workflows that hold up under real production traffic.",
+    f2_h:"MCP &amp; agent-tool interfaces", f2_p:"Model Context Protocol servers that expose real tools to AI assistants, safely and with auth.",
+    f3_h:"High-performance backend", f3_p:"Services tuned for latency, throughput and cost — where the numbers actually matter.",
+    f4_h:"Cloud-native systems", f4_p:"Containerized workloads on Kubernetes, with the CI/CD and observability to keep them healthy.",
+    f5_h:"Distributed architectures", f5_p:"Microservices that stay resilient as they scale, communicating over well-defined contracts.",
+    eye_xp:"git log --experience", xp_h:"Where I've been building",
+    xp_now:"● now", xp_parallel:"in parallel",
+    xp1_h:"Backend Engineer — AI Platform", xp1_p:"Building the AI platform for intelligent expense management on <b>Spring Boot microservices + AWS EKS</b>. Owner of the WhatsApp conversational experience (Java BFF + Python AI agent) and of our production <b>MCP server</b> with OAuth 2.0, delegated SSO and SSE streaming.",
+    xp2_h:"Adjunct Professor — Microservices Architecture", xp2_p:"Teaching and mentoring students in the design and implementation of microservice-based systems — lectures, hands-on labs and real-world exercises with <b>Docker, Kubernetes</b>, cloud-native tooling and modern communication patterns. Focused on deploying, scaling and observing distributed systems.",
+    xp3_h:"AI &amp; LLM Technology Architecture", xp3_p:"Built a <b>multi-agent AI system</b> on a customized n8n fork that routes user queries to specialized agents — designing agent workflows, integrating <b>RAG pipelines</b> and optimizing LLM response quality. Earlier, as an intern, worked across RAG/GraphRAG, prompt engineering and fine-tuning to improve enterprise-chatbot accuracy, cost and performance.",
+    eye_edu:"education --list", edu_h:"Where I studied", edu1_h:"Computer Engineering — B.Eng. &amp; M.Eng. level", edu1_p:"Six-year Computer Engineering degree (Bologna framework — B.Eng. + M.Eng. level), with a graduate focus on <b>Software Architecture &amp; Engineering</b>.",
+    eye_work:"work[]", work_h:"Selected &amp; open-source projects",
+    w1_p:"Monitoring and operational automation for Docker environments — my ITBA final project.",
+    w2_p:"A microservices system to orchestrate and manage distributed tasks reliably at scale.",
+    w3_p:"Full-stack review app with a RESTful HATEOAS API — Spring + Hibernate backend, Angular front.",
+    w4_p:"A cloud service for secure code sharing, deployed on AWS with Infrastructure as Code.",
+    w5_p:"A low-level OS project: process scheduling, memory management and multitasking, close to the metal.",
+    w6_p:"A fitness platform across web (Vue) and a native Android app (Kotlin) for tracking workouts.",
+    work_more:"See everything on GitHub →",
+    eye_stack:"stack --list", stack_h:"Tools I reach for",
+    sg_lang:"languages", sg_infra:"infra &amp; cloud", sg_back:"backend", sg_ai:"ai / llm",
+    eye_contact:"contact", contact_h:"Let's build something",
+    ph_name:"Your name", ph_email:"Your email", ph_msg:"Write your message", send:"Send message",
+    cd_email:"email", cd_uni:"university",
+    foot:"built from scratch · no template this time",
+    st_sending:"sending…", st_ok:"Message sent — thanks, I'll get back to you.", st_err:"Something failed. Try email instead."
+  },
+  es: {
+    nav_about:"sobre-mí", nav_focus:"foco", nav_xp:"experiencia", nav_work:"proyectos", nav_contact:"contacto",
+    status:"abierto a problemas interesantes",
+    role:"Software Engineer — backend, sistemas distribuidos y plataformas de IA",
+    lede:"Construyo servicios escalables y sistemas con IA para producción — desde microservicios en Spring Boot sobre Kubernetes hasta interfaces de herramientas para agentes vía Model Context Protocol.",
+    cta_contact:"Contactame", cta_resume:"CV ↓",
+    eye_about:"whoami", about_h:"Backend en el núcleo, IA en el borde.",
+    about_p1:"Soy software engineer enfocado en desarrollo backend, sistemas distribuidos y arquitecturas cloud-native. Trabajo con Java, Python, Go, Docker, Kubernetes y AWS, construyendo servicios escalables y aplicaciones con IA que corren en producción.",
+    about_pull:"En <b>Mendel</b> construyo la plataforma de IA detrás de la gestión inteligente de gastos — un ecosistema de microservicios en Spring Boot sobre AWS EKS. Soy dueño de la experiencia conversacional de WhatsApp de punta a punta: una capa de orquestación en Java y un agente de IA en Python para comprensión de lenguaje natural y flujos basados en herramientas.",
+    about_p2:"Construí y llevé a producción nuestro <b>server MCP (Model Context Protocol)</b>, que expone herramientas de auditoría de gastos y aprobación de viajes a asistentes de IA como Claude — con una capa de autorización OAuth 2.0 (Dynamic Client Registration, refresh tokens), SSO delegado y transporte SSE. Antes, en Accenture, diseñé sistemas de IA multi-agente con pipelines RAG, y doy Arquitectura de Microservicios en el ITBA.",
+    eye_focus:"foco[]", focus_h:"Lo que me interesa construir",
+    f1_h:"Orquestación de IA / LLM", f1_p:"Automatización inteligente y flujos de agentes que aguantan tráfico real de producción.",
+    f2_h:"MCP e interfaces agente-herramienta", f2_p:"Servers Model Context Protocol que exponen herramientas reales a asistentes de IA, de forma segura y con auth.",
+    f3_h:"Backend de alto rendimiento", f3_p:"Servicios afinados en latencia, throughput y costo — donde los números importan de verdad.",
+    f4_h:"Sistemas cloud-native", f4_p:"Cargas containerizadas sobre Kubernetes, con el CI/CD y la observabilidad para mantenerlas sanas.",
+    f5_h:"Arquitecturas distribuidas", f5_p:"Microservicios que se mantienen resilientes al escalar, comunicándose por contratos bien definidos.",
+    eye_xp:"git log --experiencia", xp_h:"Dónde estuve construyendo",
+    xp_now:"● ahora", xp_parallel:"en paralelo",
+    xp1_h:"Backend Engineer — Plataforma de IA", xp1_p:"Construyo la plataforma de IA para gestión inteligente de gastos sobre <b>microservicios Spring Boot + AWS EKS</b>. Dueño de la experiencia conversacional de WhatsApp (BFF en Java + agente de IA en Python) y de nuestro <b>server MCP</b> en producción con OAuth 2.0, SSO delegado y streaming SSE.",
+    xp2_h:"Profesor Adjunto — Arquitectura de Microservicios", xp2_p:"Enseño y mentoreo a estudiantes en el diseño e implementación de sistemas basados en microservicios — clases, labs prácticos y ejercicios reales con <b>Docker, Kubernetes</b>, tooling cloud-native y patrones de comunicación modernos. Enfocado en desplegar, escalar y observar sistemas distribuidos.",
+    xp3_h:"AI &amp; LLM Technology Architecture", xp3_p:"Construí un <b>sistema de IA multi-agente</b> sobre un fork customizado de n8n que rutea consultas a agentes especializados — diseñando flujos de agentes, integrando <b>pipelines RAG</b> y optimizando la calidad de respuesta de los LLM. Antes, como intern, trabajé con RAG/GraphRAG, prompt engineering y fine-tuning para mejorar precisión, costo y performance de chatbots empresariales.",
+    eye_edu:"education --list", edu_h:"Dónde estudié", edu1_h:"Ingeniería Informática — nivel B.Eng. y M.Eng.", edu1_p:"Carrera de Ingeniería Informática de seis años (marco de Bolonia — nivel B.Eng. + M.Eng.), con orientación de posgrado en <b>Arquitectura e Ingeniería de Software</b>.",
+    eye_work:"proyectos[]", work_h:"Proyectos seleccionados y open-source",
+    w1_p:"Monitoreo y automatización operativa para entornos Docker — mi proyecto final del ITBA.",
+    w2_p:"Un sistema de microservicios para orquestar y gestionar tareas distribuidas de forma confiable a escala.",
+    w3_p:"App de reseñas full-stack con API RESTful HATEOAS — backend Spring + Hibernate, front Angular.",
+    w4_p:"Un servicio cloud para compartir código de forma segura, desplegado en AWS con Infra as Code.",
+    w5_p:"Un proyecto de SO de bajo nivel: scheduling de procesos, gestión de memoria y multitarea, cerca del metal.",
+    w6_p:"Una plataforma de fitness en web (Vue) y una app Android nativa (Kotlin) para registrar entrenamientos.",
+    work_more:"Ver todo en GitHub →",
+    eye_stack:"stack --list", stack_h:"Herramientas que uso",
+    sg_lang:"lenguajes", sg_infra:"infra y cloud", sg_back:"backend", sg_ai:"ia / llm",
+    eye_contact:"contacto", contact_h:"Construyamos algo",
+    ph_name:"Tu nombre", ph_email:"Tu email", ph_msg:"Escribí tu mensaje", send:"Enviar mensaje",
+    cd_email:"email", cd_uni:"universidad",
+    foot:"hecho desde cero · sin template esta vez",
+    st_sending:"enviando…", st_ok:"Mensaje enviado — gracias, te respondo pronto.", st_err:"Algo falló. Probá por email."
+  }
 };
 
-function translatePage(locale = "es") {
-    document.querySelectorAll("[data-i18n]").forEach(el => {
-        const key = el.getAttribute("data-i18n");
-        if (el.placeholder !== undefined && el.placeholder !== "") {
-            el.placeholder = translations[locale][key] || translations["en"][key] || key;
-        } else if (el.value !== undefined && el.type === "submit") {
-            el.value = translations[locale][key] || translations["en"][key] || key;
-        } else {
-            el.textContent = translations[locale][key] || translations["en"][key] || key;
-        }
-    });
+let lang = (navigator.language || "en").toLowerCase().startsWith("es") ? "es" : "en";
+
+function applyLang(l) {
+  lang = l;
+  const t = I18N[l];
+  document.querySelectorAll("[data-i18n]").forEach(el => {
+    const k = el.getAttribute("data-i18n");
+    if (t[k] != null) el.innerHTML = t[k];
+  });
+  document.querySelectorAll("[data-i18n-ph]").forEach(el => {
+    const k = el.getAttribute("data-i18n-ph");
+    if (t[k] != null) el.placeholder = t[k];
+  });
+  document.documentElement.lang = l;
+  document.getElementById("langCur").textContent = l.toUpperCase();
+  document.getElementById("langAlt").textContent = (l === "en" ? "ES" : "EN");
 }
 
-// Llama a la función con el locale deseado
-translatePage("es");
+document.getElementById("langBtn").addEventListener("click", () => applyLang(lang === "en" ? "es" : "en"));
+applyLang(lang);
 
-// --- Envío del formulario de contacto a Discord Webhook ---
-const contactForm = document.getElementById('contactForm');
-if (contactForm) {
-    contactForm.addEventListener('submit', async function(e) {
-        e.preventDefault();
-        const inputs = contactForm.querySelectorAll('.form-controls');
-        const name = inputs[0].value.trim();
-        const email = inputs[1].value.trim();
-        const message = inputs[2].value.trim();
+// ---------- reveal on scroll ----------
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } });
+}, { threshold: 0.12 });
+document.querySelectorAll(".reveal").forEach(el => io.observe(el));
 
-        // Reemplaza esta URL por la de tu webhook de Discord
-        const webhookUrl = 'https://discord.com/api/webhooks/1375575867035615412/FSD9vglEq8OkZlK_0xd8jn2KCCpdzkQnHoSKgJK8DvXahnXCiXO_9LIS4HPsrinfY6lA';
+// ---------- smooth scroll for in-page anchors ----------
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener("click", function (e) {
+    const target = document.querySelector(this.getAttribute("href"));
+    if (target) { e.preventDefault(); target.scrollIntoView({ behavior: "smooth" }); }
+  });
+});
 
-        const discordPayload = {
-            content: `Nuevo mensaje de contacto:\n\nNombre: ${name}\nEmail: ${email}\nMensaje: ${message}`
-        };
+// ---------- contact form -> Discord webhook (private server) ----------
+const form = document.getElementById("contactForm");
+const statusEl = document.getElementById("formStatus");
+const WEBHOOK = "https://discord.com/api/webhooks/1375575867035615412/FSD9vglEq8OkZlK_0xd8jn2KCCpdzkQnHoSKgJK8DvXahnXCiXO_9LIS4HPsrinfY6lA";
 
-        try {
-            const response = await fetch(webhookUrl, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(discordPayload)
-            });
-            if (response.ok) {
-                alert('¡Mensaje enviado correctamente!');
-                contactForm.reset();
-            } else {
-                alert('Error al enviar el mensaje. Intenta nuevamente.');
-            }
-        } catch (error) {
-            alert('Error de red al enviar el mensaje.');
-        }
-    });
+if (form) {
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const name = document.getElementById("cName").value.trim();
+    const email = document.getElementById("cEmail").value.trim();
+    const msg = document.getElementById("cMsg").value.trim();
+    statusEl.className = "form-status";
+    statusEl.textContent = I18N[lang].st_sending;
+    try {
+      const r = await fetch(WEBHOOK, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ content: `**New contact from portfolio**\n**Name:** ${name}\n**Email:** ${email}\n**Message:** ${msg}` })
+      });
+      if (r.ok) { statusEl.className = "form-status ok"; statusEl.textContent = I18N[lang].st_ok; form.reset(); }
+      else { statusEl.className = "form-status err"; statusEl.textContent = I18N[lang].st_err; }
+    } catch (err) {
+      statusEl.className = "form-status err";
+      statusEl.textContent = I18N[lang].st_err;
+    }
+  });
 }
