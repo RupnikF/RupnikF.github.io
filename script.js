@@ -1,4 +1,4 @@
-// Franco Rupnik — portfolio behaviour: i18n toggle, scroll reveal, contact form.
+// Franco Rupnik — portfolio behaviour: i18n toggle, scroll reveal.
 
 document.getElementById('year').textContent = new Date().getFullYear();
 
@@ -37,10 +37,8 @@ const I18N = {
     eye_stack:"stack --list", stack_h:"Tools I reach for",
     sg_lang:"languages", sg_infra:"infra &amp; cloud", sg_back:"backend", sg_ai:"ai / llm",
     eye_contact:"contact", contact_h:"Let's build something",
-    ph_name:"Your name", ph_email:"Your email", ph_msg:"Write your message", send:"Send message",
     cd_email:"email", cd_uni:"university",
     foot:"built from scratch · no template this time",
-    st_sending:"sending…", st_ok:"Message sent — thanks, I'll get back to you.", st_err:"Something failed. Try email instead."
   },
   es: {
     nav_about:"sobre-mí", nav_focus:"foco", nav_xp:"experiencia", nav_work:"proyectos", nav_contact:"contacto",
@@ -75,10 +73,8 @@ const I18N = {
     eye_stack:"stack --list", stack_h:"Herramientas que uso",
     sg_lang:"lenguajes", sg_infra:"infra y cloud", sg_back:"backend", sg_ai:"ia / llm",
     eye_contact:"contacto", contact_h:"Construyamos algo",
-    ph_name:"Tu nombre", ph_email:"Tu email", ph_msg:"Escribí tu mensaje", send:"Enviar mensaje",
     cd_email:"email", cd_uni:"universidad",
     foot:"hecho desde cero · sin template esta vez",
-    st_sending:"enviando…", st_ok:"Mensaje enviado — gracias, te respondo pronto.", st_err:"Algo falló. Probá por email."
   }
 };
 
@@ -120,31 +116,3 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     if (target) { e.preventDefault(); target.scrollIntoView({ behavior: "smooth" }); }
   });
 });
-
-// ---------- contact form -> Discord webhook (private server) ----------
-const form = document.getElementById("contactForm");
-const statusEl = document.getElementById("formStatus");
-const WEBHOOK = "https://discord.com/api/webhooks/1375575867035615412/FSD9vglEq8OkZlK_0xd8jn2KCCpdzkQnHoSKgJK8DvXahnXCiXO_9LIS4HPsrinfY6lA";
-
-if (form) {
-  form.addEventListener("submit", async (e) => {
-    e.preventDefault();
-    const name = document.getElementById("cName").value.trim();
-    const email = document.getElementById("cEmail").value.trim();
-    const msg = document.getElementById("cMsg").value.trim();
-    statusEl.className = "form-status";
-    statusEl.textContent = I18N[lang].st_sending;
-    try {
-      const r = await fetch(WEBHOOK, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ content: `**New contact from portfolio**\n**Name:** ${name}\n**Email:** ${email}\n**Message:** ${msg}` })
-      });
-      if (r.ok) { statusEl.className = "form-status ok"; statusEl.textContent = I18N[lang].st_ok; form.reset(); }
-      else { statusEl.className = "form-status err"; statusEl.textContent = I18N[lang].st_err; }
-    } catch (err) {
-      statusEl.className = "form-status err";
-      statusEl.textContent = I18N[lang].st_err;
-    }
-  });
-}
